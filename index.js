@@ -80,7 +80,7 @@ function startOver(){
 }
 
 //For Mobile
-$(document).on("tap",function(){
+$(document).click (function(){
     if (!started) {
         $("#level-title").text("Level " + level);
         nextSequence();
