@@ -78,3 +78,27 @@ function startOver(){
     started=false;
     userClickedPattern=[];
 }
+
+//For Mobile
+$(document).on("tap",function(){
+    if (!started) {
+        $("#level-title").text("Level " + level);
+        nextSequence();
+        started = true;
+    }
+});
+
+$(".btn").on("tap",function () {
+
+    //2. Inside the handler, create a new variable called userChosenColour to store the id of the button that got clicked.
+    var userChosenColour = $(this).attr("id");
+
+    //4. Add the contents of the variable userChosenColour created in step 2 to the end of this new userClickedPattern
+    userClickedPattern.push(userChosenColour);
+    //console.log(userChosenColour);
+    //console.log(userClickedPattern);
+    playSound(userChosenColour);
+    animatePress(userChosenColour);
+    checkAnswer(userClickedPattern.length-1);
+
+});
